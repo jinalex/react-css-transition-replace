@@ -131,12 +131,12 @@ export default class ReactCSSTransitionReplace extends React.Component {
       nextChild,
       activeHeightTransition: false,
       nextChildKey: state.currentChildKey ? String(Number(state.currentChildKey) + 1) : '1',
-      height: state.currentChild ? ReactDOM.findDOMNode(ref).offsetHeight : 0,
+      height: null,
       width: state.currentChild && this.props.changeWidth ? ReactDOM.findDOMNode(ref).offsetWidth : null,
     })
 
     // Enqueue setting the next height to trigger the height transition.
-    this.enqueueHeightTransition(nextChild)
+    //this.enqueueHeightTransition(nextChild)
   }
 
   componentDidUpdate() {
@@ -323,13 +323,14 @@ export default class ReactCSSTransitionReplace extends React.Component {
       childrenToRender.push(
         React.createElement('span',
           {
-            style: {
+            style: currentChild ? {
               position: 'absolute',
+              overflow: 'hidden',
               top: 0,
               left: 0,
               right: 0,
               bottom: 0,
-            },
+            } : {},
             key: nextChildKey,
           },
           this._wrapChild(nextChild, {ref: 'next'})
