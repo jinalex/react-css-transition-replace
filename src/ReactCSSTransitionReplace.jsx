@@ -226,6 +226,10 @@ export default class ReactCSSTransitionReplace extends React.Component {
         state.height = null
         state.width = null
       }
+      else {
+        const nextNode = ReactDOM.findDOMNode(this.refs.next)
+        nextNode.scrollIntoView(true)
+      }
 
       this.setState(state)
     }
