@@ -283,7 +283,7 @@ export default class ReactCSSTransitionReplace extends React.Component {
           'span',
           {key: currentChildKey},
           this._wrapChild(
-            typeof currentChild.type == 'string' ? currentChild : React.cloneElement(currentChild, {isLeaving}),
+            currentChild,
             {ref: 'curr'})
         )
       )
