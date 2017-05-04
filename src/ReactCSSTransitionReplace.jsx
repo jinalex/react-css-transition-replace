@@ -57,6 +57,7 @@ export default class ReactCSSTransitionReplace extends React.Component {
       height: React.PropTypes.string,
     })]).isRequired,
 
+    scrollBeforeEnter: React.PropTypes.bool,
     transitionAppear: React.PropTypes.bool,
     transitionEnter: React.PropTypes.bool,
     transitionLeave: React.PropTypes.bool,
@@ -68,6 +69,7 @@ export default class ReactCSSTransitionReplace extends React.Component {
   }
 
   static defaultProps = {
+    scrollBeforeEnter: true,
     transitionAppear: false,
     transitionEnter: true,
     transitionLeave: true,
@@ -228,7 +230,9 @@ export default class ReactCSSTransitionReplace extends React.Component {
       }
       else {
         const nextNode = ReactDOM.findDOMNode(this.refs.next)
-        nextNode.scrollIntoView(true)
+        if (this.props.scrollBeforeEnter) {
+          nextNode.scrollIntoView(true)
+        }
       }
 
       this.setState(state)
@@ -275,7 +279,7 @@ export default class ReactCSSTransitionReplace extends React.Component {
     const childrenToRender = []
 
     const {
-      overflowHidden, transitionName, changeWidth, component,
+      overflowHidden, transitionName, changeWidth, component, scrollBeforeEnter,
       transitionAppear, transitionEnter, transitionLeave,
       transitionAppearTimeout, transitionEnterTimeout, transitionLeaveTimeout,
       ...containerProps
