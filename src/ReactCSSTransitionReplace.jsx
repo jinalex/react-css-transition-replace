@@ -58,16 +58,10 @@ export default class ReactCSSTransitionReplace extends React.Component {
       height: PropTypes.string,
     })]).isRequired,
 
-<<<<<<< HEAD
     scrollBeforeEnter: React.PropTypes.bool,
     transitionAppear: React.PropTypes.bool,
     transitionEnter: React.PropTypes.bool,
     transitionLeave: React.PropTypes.bool,
-=======
-    transitionAppear: PropTypes.bool,
-    transitionEnter: PropTypes.bool,
-    transitionLeave: PropTypes.bool,
->>>>>>> upstream/master
     transitionAppearTimeout: createTransitionTimeoutPropValidator('Appear'),
     transitionEnterTimeout: createTransitionTimeoutPropValidator('Enter'),
     transitionLeaveTimeout: createTransitionTimeoutPropValidator('Leave'),
