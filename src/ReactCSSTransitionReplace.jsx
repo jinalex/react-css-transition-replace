@@ -6,8 +6,9 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
+import PropTypes from 'prop-types'
 
-import ReactCSSTransitionGroupChild from 'react/lib/ReactCSSTransitionGroupChild'
+import ReactCSSTransitionGroupChild from 'react-transition-group/CSSTransitionGroupChild'
 
 const reactCSSTransitionGroupChild = React.createFactory(ReactCSSTransitionGroupChild)
 
@@ -42,30 +43,36 @@ export default class ReactCSSTransitionReplace extends React.Component {
   static displayName = 'ReactCSSTransitionReplace'
 
   static propTypes = {
-    transitionName: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.shape({
-      enter: React.PropTypes.string,
-      leave: React.PropTypes.string,
-      active: React.PropTypes.string,
-      height: React.PropTypes.string,
-    }), React.PropTypes.shape({
-      enter: React.PropTypes.string,
-      enterActive: React.PropTypes.string,
-      leave: React.PropTypes.string,
-      leaveActive: React.PropTypes.string,
-      appear: React.PropTypes.string,
-      appearActive: React.PropTypes.string,
-      height: React.PropTypes.string,
+    transitionName: PropTypes.oneOfType([PropTypes.string, PropTypes.shape({
+      enter: PropTypes.string,
+      leave: PropTypes.string,
+      active: PropTypes.string,
+      height: PropTypes.string,
+    }), PropTypes.shape({
+      enter: PropTypes.string,
+      enterActive: PropTypes.string,
+      leave: PropTypes.string,
+      leaveActive: PropTypes.string,
+      appear: PropTypes.string,
+      appearActive: PropTypes.string,
+      height: PropTypes.string,
     })]).isRequired,
 
+<<<<<<< HEAD
     scrollBeforeEnter: React.PropTypes.bool,
     transitionAppear: React.PropTypes.bool,
     transitionEnter: React.PropTypes.bool,
     transitionLeave: React.PropTypes.bool,
+=======
+    transitionAppear: PropTypes.bool,
+    transitionEnter: PropTypes.bool,
+    transitionLeave: PropTypes.bool,
+>>>>>>> upstream/master
     transitionAppearTimeout: createTransitionTimeoutPropValidator('Appear'),
     transitionEnterTimeout: createTransitionTimeoutPropValidator('Enter'),
     transitionLeaveTimeout: createTransitionTimeoutPropValidator('Leave'),
-    overflowHidden: React.PropTypes.bool,
-    changeWidth: React.PropTypes.bool,
+    overflowHidden: PropTypes.bool,
+    changeWidth: PropTypes.bool,
   }
 
   static defaultProps = {
